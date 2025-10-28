@@ -1,7 +1,11 @@
 import Link from "next/link";
 
 export default async function Home() {
-  const res = await fetch("https://dummyjson.com/recipes");
+  const res = await fetch("https://dummyjson.com/recipes", {
+    next: {
+      revalidate: 60, //seconds
+    }
+  });
   const recipes = await res.json();
 
   return (
