@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
       >
         <nav className="text-sm flex justify-center space-x-8 p-20">
           <Link href="/">Home</Link>
-          <Link href="/add">Add</Link>
+          <Link href="/add">Add Recipe</Link>
           <Link href="/dashboard">Dashboard</Link>
         </nav>
         {children}
