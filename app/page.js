@@ -1,5 +1,16 @@
-import Image from "next/image";
+import Link from "next/link";
 
-export default function Home() {
-  return <h1 className="text-center font-bold p-2">Welcome to Recipe App</h1>
+export default async function Home() {
+  const res = await fetch("https://dummyjson.com/recipes");
+  const recipes = await res.json();
+
+  return (
+    <ol className="nl-auto text-center">
+      {recipes.recipes.map((recipe) => (
+        <li key={recipe.id}>
+          <Link href={`/${recipe.id}`}>{recipe.name}</Link>
+        </li>
+      ))}
+    </ol>
+  )
 }
